@@ -1,4 +1,4 @@
-# Install script for directory: /home/workspace/c/main_workplace/Top-Down-Experessions-Parser
+# Install script for directory: /home/workspace/c/Top-Down-Experessions-Parser
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/workspace/c/Top-Down-Experessions-Parser/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,35 +1,46 @@
+#include <stdbool.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
+#include "ast.h"
 #include "lexer.h"
 #include "parser.h"
-#include "parser_structures.h"
 #include "utils.h"
 
-// https://chatgpt.com/c/691b1d84-c6f8-8330-a481-97cd176f9473
-
 int main(void) {
-    char *inputBuffer = calloc(MAX_BUFFER_LENGTH, sizeof(char));
+    char buffer[MAX_BUFFER_LENGTH];
 
-    printf("Enter the expression ( you can use integer numbers, +, - and '(' ')' ):\n> ");
-    fgets(inputBuffer, MAX_BUFFER_LENGTH, stdin);
-    inputBuffer[strcspn(inputBuffer, "\n")] = '\0';
+    printf("Enter the expression (+, -, round brackets). Empty string - exit.\n");
 
-    Lexer lexer = {.currentToken = {TOKEN_JUNK}, .inputPointer = NULL, .inputPointerPosition = 0};
-    lexerInit(&lexer, inputBuffer);
+    while (true) {
+        printf("> ");
+        if (!fgets(buffer, (int)sizeof(buffer), stdin)) {
+            break;
+        }
 
-    Parser parser = {.lexer = NULL};
-    parserInit(&parser, &lexer);
+        buffer[strcspn(buffer, "\n")] = '\0'; // TODO: make abstract function
 
-    ULL expressionResult = parseExpression(&parser);
+        if (buffer[0] == '\0') {
+            break;
+        } // TODO: make abstract function
 
-    if (parser.lexer->currentToken.type != TOKEN_END) {
-        printf("Incorrect expression.\n");
+        // TODO: think about the logic
+        Lexer lexer;
+        initializeLexer(&lexer, buffer);
+
+        Parser parser;
+        initializeParser(&parser, &lexer);
+
+        AstNode *root = parserParse(&parser);
+
+        if (parser.error) {
+            printErrorParser(&parser);
+        } else {
+            printASTNode(root);
+        }
+
+        freeASTNode(root);
     }
 
-    printf("%llu\n", expressionResult);
-
-    free(inputBuffer);
     return 0;
 }

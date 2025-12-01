@@ -1,64 +1,77 @@
+#include "lexer.h"
 #include <ctype.h>
 
-#include "lexer.h"
-#include "parser_structures.h"
-
-void lexerInit(Lexer *lexer, const char *inputSource) {
-    lexer->inputPointer = inputSource;
-    lexer->inputPointerPosition = 0;
-    lexerGetNextToken(lexer);
+static Token createToken(TokenType type, int value) {
+    Token token;
+    token.type = type;
+    token.value = value;
+    return token;
 }
 
-void lexerGetNextToken(Lexer *lexer) {
-    while (isspace(lexer->inputPointer[lexer->inputPointerPosition])) {
-        lexer->inputPointerPosition++;
-    }
-
-    Token newToken = {TOKEN_JUNK, 0};
-    char currentChar = lexer->inputPointer[lexer->inputPointerPosition];
-    if (currentChar == '\0') {
-        newToken.type = TOKEN_END;
-    } else if (isdigit(currentChar)) {
-        newToken = lexerReadNumber(lexer);
-    } else {
-        lexer->inputPointerPosition++;
-        switch (currentChar) {
-        case '+': {
-            newToken.type = TOKEN_PLUS;
-            break;
-        }
-        case '*': {
-            newToken.type = TOKEN_MUL;
-            break;
-        }
-        case '(': {
-            newToken.type = TOKEN_LPAREN;
-            break;
-        }
-        case ')': {
-            newToken.type = TOKEN_RPAREN;
-            break;
-        }
-        default: {
-            newToken.type = TOKEN_JUNK;
-            break;
-        }
-        }
-    }
-
-    lexer->currentToken = newToken;
+void initializeLexer(Lexer *lexer, const char *input) {
+    // TODO: Add pointer transfer check
+    lexer->input = input;
+    lexer->position = 0;
+    lexer->hasCurrentToken = 0;
 }
 
-Token lexerReadNumber(Lexer *lexer) {
-    ULL value = 0;
-    while (isdigit(lexer->inputPointer[lexer->inputPointerPosition])) {
-        value = value * 10 + (lexer->inputPointer[lexer->inputPointerPosition] - '0');
-        lexer->inputPointerPosition++;
+static Token lexerReadToken(Lexer *lexer) {
+    // TODO: Add pointer transfer check
+    const char *string = lexer->input;
+    unsigned long currentIndex = lexer->position;
+
+    // TODO: Make Skip spaces function
+    while (string[currentIndex] != '\0' && isspace(string[currentIndex])) {
+        currentIndex++;
     }
 
-    Token numberToken = {TOKEN_JUNK, 0};
-    numberToken.type = TOKEN_NUMBER;
-    numberToken.value = value;
+    if (string[currentIndex] == '\0') {
+        lexer->position = currentIndex;
+        return createToken(TOKEN_END, 0);
+    }
 
-    return numberToken;
+    char currentCharacter = string[currentIndex];
+
+    if (isdigit(currentCharacter)) {
+        int value = 0;
+        while (isdigit(string[currentIndex])) {
+            // TODO: Make toDigit function
+            value = value * 10 + (string[currentIndex] - '0');
+            currentIndex++;
+        }
+        lexer->position = currentIndex;
+        return createToken(TOKEN_NUMBER, value);
+    }
+
+    lexer->position = currentIndex + 1;
+    switch (currentCharacter) {
+    case '+':
+        return createToken(TOKEN_PLUS, 0);
+    case '*':
+        return createToken(TOKEN_STAR, 0);
+    case '(':
+        return createToken(TOKEN_LPAREN, 0);
+    case ')':
+        return createToken(TOKEN_RPAREN, 0);
+    default:
+        return createToken(TOKEN_INVALID, 0);
+    }
+}
+
+Token lexerPeek(Lexer *lexer) {
+    // TODO: Add pointer transfer check
+    if (!lexer->hasCurrentToken) {
+        lexer->current = lexerReadToken(lexer);
+        lexer->hasCurrentToken = 1;
+    }
+    return lexer->current;
+}
+
+Token lexerNext(Lexer *lexer) {
+    // TODO: Add pointer transfer check
+    if (lexer->hasCurrentToken) {
+        lexer->hasCurrentToken = 0;
+        return lexer->current;
+    }
+    return lexerReadToken(lexer);
 }

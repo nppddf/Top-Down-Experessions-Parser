@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/workspace/c/main_workplace/Top-Down-Experessions-Parser
+CMAKE_SOURCE_DIR = /home/workspace/c/Top-Down-Experessions-Parser
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build
+CMAKE_BINARY_DIR = /home/workspace/c/Top-Down-Experessions-Parser/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Top-Down-Experessions-Parser.dir/depend.make
@@ -70,67 +70,67 @@ include CMakeFiles/Top-Down-Experessions-Parser.dir/progress.make
 include CMakeFiles/Top-Down-Experessions-Parser.dir/flags.make
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/flags.make
-CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o: /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/main.c
+CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o: /home/workspace/c/Top-Down-Experessions-Parser/src/main.c
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o -MF CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o.d -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o -c /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o -MF CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o.d -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o -c /home/workspace/c/Top-Down-Experessions-Parser/src/main.c
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/main.c > CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/workspace/c/Top-Down-Experessions-Parser/src/main.c > CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.i
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/main.c -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/workspace/c/Top-Down-Experessions-Parser/src/main.c -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.s
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/flags.make
-CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o: /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/parser.c
+CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o: /home/workspace/c/Top-Down-Experessions-Parser/src/parser.c
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o -MF CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o.d -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o -c /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/parser.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o -MF CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o.d -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o -c /home/workspace/c/Top-Down-Experessions-Parser/src/parser.c
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/parser.c > CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/workspace/c/Top-Down-Experessions-Parser/src/parser.c > CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.i
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/parser.c -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/workspace/c/Top-Down-Experessions-Parser/src/parser.c -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.s
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/flags.make
-CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o: /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/lexer.c
+CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o: /home/workspace/c/Top-Down-Experessions-Parser/src/lexer.c
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o -MF CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o.d -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o -c /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/lexer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o -MF CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o.d -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o -c /home/workspace/c/Top-Down-Experessions-Parser/src/lexer.c
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/lexer.c > CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/workspace/c/Top-Down-Experessions-Parser/src/lexer.c > CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.i
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/lexer.c -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/workspace/c/Top-Down-Experessions-Parser/src/lexer.c -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.s
 
-CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/flags.make
-CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o: /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/logger.c
-CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o -MF CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o.d -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o -c /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/logger.c
+CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/flags.make
+CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o: /home/workspace/c/Top-Down-Experessions-Parser/src/ast.c
+CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o: CMakeFiles/Top-Down-Experessions-Parser.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o -MF CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o.d -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o -c /home/workspace/c/Top-Down-Experessions-Parser/src/ast.c
 
-CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/logger.c > CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.i
+CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/workspace/c/Top-Down-Experessions-Parser/src/ast.c > CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.i
 
-CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/logger.c -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.s
+CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/workspace/c/Top-Down-Experessions-Parser/src/ast.c -o CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.s
 
 # Object files for target Top-Down-Experessions-Parser
 Top__Down__Experessions__Parser_OBJECTS = \
 "CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o" \
 "CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o" \
 "CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o" \
-"CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o"
+"CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o"
 
 # External object files for target Top-Down-Experessions-Parser
 Top__Down__Experessions__Parser_EXTERNAL_OBJECTS =
@@ -138,10 +138,10 @@ Top__Down__Experessions__Parser_EXTERNAL_OBJECTS =
 Top-Down-Experessions-Parser: CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o
 Top-Down-Experessions-Parser: CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o
 Top-Down-Experessions-Parser: CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o
-Top-Down-Experessions-Parser: CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o
+Top-Down-Experessions-Parser: CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o
 Top-Down-Experessions-Parser: CMakeFiles/Top-Down-Experessions-Parser.dir/build.make
 Top-Down-Experessions-Parser: CMakeFiles/Top-Down-Experessions-Parser.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable Top-Down-Experessions-Parser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable Top-Down-Experessions-Parser"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Top-Down-Experessions-Parser.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +153,6 @@ CMakeFiles/Top-Down-Experessions-Parser.dir/clean:
 .PHONY : CMakeFiles/Top-Down-Experessions-Parser.dir/clean
 
 CMakeFiles/Top-Down-Experessions-Parser.dir/depend:
-	cd /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/workspace/c/main_workplace/Top-Down-Experessions-Parser /home/workspace/c/main_workplace/Top-Down-Experessions-Parser /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles/Top-Down-Experessions-Parser.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/workspace/c/Top-Down-Experessions-Parser/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/workspace/c/Top-Down-Experessions-Parser /home/workspace/c/Top-Down-Experessions-Parser /home/workspace/c/Top-Down-Experessions-Parser/build /home/workspace/c/Top-Down-Experessions-Parser/build /home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles/Top-Down-Experessions-Parser.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Top-Down-Experessions-Parser.dir/depend
 

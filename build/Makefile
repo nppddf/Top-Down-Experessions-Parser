@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/workspace/c/main_workplace/Top-Down-Experessions-Parser
+CMAKE_SOURCE_DIR = /home/workspace/c/Top-Down-Experessions-Parser
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build
+CMAKE_BINARY_DIR = /home/workspace/c/Top-Down-Experessions-Parser/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles /home/workspace/c/Top-Down-Experessions-Parser/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,6 +129,30 @@ Top-Down-Experessions-Parser/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Top-Down-Experessions-Parser.dir/build.make CMakeFiles/Top-Down-Experessions-Parser.dir/build
 .PHONY : Top-Down-Experessions-Parser/fast
 
+src/ast.o: src/ast.c.o
+.PHONY : src/ast.o
+
+# target to build an object file
+src/ast.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Top-Down-Experessions-Parser.dir/build.make CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o
+.PHONY : src/ast.c.o
+
+src/ast.i: src/ast.c.i
+.PHONY : src/ast.i
+
+# target to preprocess a source file
+src/ast.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Top-Down-Experessions-Parser.dir/build.make CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.i
+.PHONY : src/ast.c.i
+
+src/ast.s: src/ast.c.s
+.PHONY : src/ast.s
+
+# target to generate assembly for a file
+src/ast.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Top-Down-Experessions-Parser.dir/build.make CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.s
+.PHONY : src/ast.c.s
+
 src/lexer.o: src/lexer.c.o
 .PHONY : src/lexer.o
 
@@ -152,30 +176,6 @@ src/lexer.s: src/lexer.c.s
 src/lexer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Top-Down-Experessions-Parser.dir/build.make CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.s
 .PHONY : src/lexer.c.s
-
-src/logger.o: src/logger.c.o
-.PHONY : src/logger.o
-
-# target to build an object file
-src/logger.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Top-Down-Experessions-Parser.dir/build.make CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o
-.PHONY : src/logger.c.o
-
-src/logger.i: src/logger.c.i
-.PHONY : src/logger.i
-
-# target to preprocess a source file
-src/logger.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Top-Down-Experessions-Parser.dir/build.make CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.i
-.PHONY : src/logger.c.i
-
-src/logger.s: src/logger.c.s
-.PHONY : src/logger.s
-
-# target to generate assembly for a file
-src/logger.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Top-Down-Experessions-Parser.dir/build.make CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.s
-.PHONY : src/logger.c.s
 
 src/main.o: src/main.c.o
 .PHONY : src/main.o
@@ -234,12 +234,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Top-Down-Experessions-Parser"
+	@echo "... src/ast.o"
+	@echo "... src/ast.i"
+	@echo "... src/ast.s"
 	@echo "... src/lexer.o"
 	@echo "... src/lexer.i"
 	@echo "... src/lexer.s"
-	@echo "... src/logger.o"
-	@echo "... src/logger.i"
-	@echo "... src/logger.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

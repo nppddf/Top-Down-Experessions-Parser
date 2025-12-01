@@ -1,3 +1,3 @@
-/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles/Top-Down-Experessions-Parser.dir
-/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles/edit_cache.dir
-/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/build/CMakeFiles/rebuild_cache.dir
+/home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles/Top-Down-Experessions-Parser.dir
+/home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles/edit_cache.dir
+/home/workspace/c/Top-Down-Experessions-Parser/build/CMakeFiles/rebuild_cache.dir

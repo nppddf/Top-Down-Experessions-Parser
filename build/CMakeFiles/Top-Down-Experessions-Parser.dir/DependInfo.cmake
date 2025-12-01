@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/lexer.c" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o" "gcc" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o.d"
-  "/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/logger.c" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o" "gcc" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/logger.c.o.d"
-  "/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/main.c" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o" "gcc" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o.d"
-  "/home/workspace/c/main_workplace/Top-Down-Experessions-Parser/src/parser.c" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o" "gcc" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o.d"
+  "/home/workspace/c/Top-Down-Experessions-Parser/src/ast.c" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o" "gcc" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/ast.c.o.d"
+  "/home/workspace/c/Top-Down-Experessions-Parser/src/lexer.c" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o" "gcc" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/lexer.c.o.d"
+  "/home/workspace/c/Top-Down-Experessions-Parser/src/main.c" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o" "gcc" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/main.c.o.d"
+  "/home/workspace/c/Top-Down-Experessions-Parser/src/parser.c" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o" "gcc" "CMakeFiles/Top-Down-Experessions-Parser.dir/src/parser.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

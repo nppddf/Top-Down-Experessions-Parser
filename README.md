@@ -21,24 +21,7 @@ Fact  => number | '(' Expr ')'
  (20 + 8 * (2 + 3)) + 1
 
 # Project tree
-.
-├── CMakeLists.txt
-├── LICENSE
-├── README.md
-├── build
-├── inc
-│   ├── lexer.h
-│   ├── logger.h
-│   ├── parser.h
-│   ├── parser_structures.h
-│   └── utils.h
-└── src
-    ├── lexer.c
-    ├── logger.c
-    ├── main.c
-    └── parser.c
 
-4 directories, 12 files
 
 # Build and Run
 Requires GCC or Clang, CMake
