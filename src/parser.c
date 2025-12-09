@@ -1,37 +1,52 @@
 #include "parser.h"
 #include "ast.h"
 #include "lexer.h"
+#include "utils.h"
+#include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-static AstNode *parseExpression(Parser *parser);
-static AstNode *parseTerm(Parser *parser);
-static AstNode *parseFactor(Parser *parser);
+static ASTNode *parseExpression(Parser *parser);
+static ASTNode *parseTerm(Parser *parser);
+static ASTNode *parseFactor(Parser *parser);
 
-static void parsesSetError(Parser *parser, const char *message) {
-    // TODO: Add pointer transfer check
-    if (!parser->error) {
-        parser->error = 1;
+static int parserSetError(Parser *parser, const char *message) {
+    SOFT_ASSERT(parser != NULL, "Failed to transfer a pointer.\n", EXIT_FAILURE);
+
+    if (!parser->isError) {
+        parser->isError = true;
         parser->errorMessage = message;
     }
+
+    return EXIT_SUCCESS;
 }
 
-void printErrorParser(Parser *parser) {
-    // TODO: Add pointer transfer check
-    printf("Parse error: %s\n", parser->errorMessage ? parser->errorMessage : "(unknown)");
+int printErrorParser(Parser *parser) {
+    SOFT_ASSERT(parser != NULL, "Failed to transfer a pointer.\n", EXIT_FAILURE);
+
+    printf("Parse isError: %s\n", parser->errorMessage ? parser->errorMessage : "unknown");
+
+    return EXIT_SUCCESS;
 }
 
-void initializeParser(Parser *parser, Lexer *lexer) {
-    // TODO: Add pointer transfer check
+int initializeParser(Parser *parser, Lexer *lexer) {
+    SOFT_ASSERT(parser != NULL, "Failed to transfer a pointer.\n", EXIT_FAILURE);
+    SOFT_ASSERT(lexer != NULL, "Failed to transfer a pointer.\n", EXIT_FAILURE);
+
     parser->lexer = lexer;
-    parser->error = 0;
+    parser->isError = false;
     parser->errorMessage = NULL;
+
+    return EXIT_SUCCESS;
 }
 
-AstNode *parserParse(Parser *parser) {
-    // TODO: Add pointer transfer check
-    AstNode *root = parseExpression(parser);
+ASTNode *parserParse(Parser *parser) {
+    SOFT_ASSERT(parser != NULL, "Failed to transfer a pointer.\n", NULL);
 
-    if (parser->error) {
+    ASTNode *root = parseExpression(parser);
+    SOFT_ASSERT(root != NULL, "Failed to parse the expression.\n", NULL);
+
+    if (parser->isError) {
         if (root) {
             freeASTNode(root);
         }
@@ -40,7 +55,7 @@ AstNode *parserParse(Parser *parser) {
 
     Token token = lexerPeek(parser->lexer);
     if (token.type != TOKEN_END) {
-        parsesSetError(parser, "Unexpected characters after expression");
+        parserSetError(parser, "Unexpected characters after expression");
         if (root) {
             freeASTNode(root);
         }
@@ -50,28 +65,29 @@ AstNode *parserParse(Parser *parser) {
     return root;
 }
 
-static AstNode *parseExpression(Parser *parser) {
-    // TODO: Add pointer transfer check
-    AstNode *left = parseTerm(parser);
-    if (parser->error || !left) {
+static ASTNode *parseExpression(Parser *parser) {
+    SOFT_ASSERT(parser != NULL, "Failed to transfer a pointer.\n", NULL);
+
+    ASTNode *left = parseTerm(parser);
+    if (parser->isError || left == NULL) {
         return NULL;
     }
 
-    while (!parser->error) {
+    while (!parser->isError) {
         Token token = lexerPeek(parser->lexer);
 
         if (token.type == TOKEN_PLUS) {
             lexerNext(parser->lexer);
 
-            AstNode *right = parseTerm(parser);
-            if (!right) {
+            ASTNode *right = parseTerm(parser);
+            if (right == NULL) {
                 freeASTNode(left);
                 return NULL;
             }
 
             left = createOperatorASTNode(AST_ADD, left, right);
         } else if (token.type == TOKEN_INVALID) {
-            parsesSetError(parser, "Invalid Token in expression");
+            parserSetError(parser, "Invalid token in expression");
             freeASTNode(left);
             return NULL;
         } else {
@@ -82,28 +98,29 @@ static AstNode *parseExpression(Parser *parser) {
     return left;
 }
 
-static AstNode *parseTerm(Parser *parser) {
-    // TODO: Add pointer transfer check
-    AstNode *left = parseFactor(parser);
-    if (parser->error || !left) {
+static ASTNode *parseTerm(Parser *parser) {
+    SOFT_ASSERT(parser != NULL, "Failed to transfer a pointer.\n", NULL);
+
+    ASTNode *left = parseFactor(parser);
+    if (parser->isError || left == NULL) {
         return NULL;
     }
 
-    while (!parser->error) {
+    while (!parser->isError) {
         Token token = lexerPeek(parser->lexer);
 
         if (token.type == TOKEN_STAR) {
             lexerNext(parser->lexer);
 
-            AstNode *right = parseFactor(parser);
-            if (!right) {
+            ASTNode *right = parseFactor(parser);
+            if (right == NULL) {
                 freeASTNode(left);
                 return NULL;
             }
 
             left = createOperatorASTNode(AST_MUL, left, right);
         } else if (token.type == TOKEN_INVALID) {
-            parsesSetError(parser, "Invalid Token in term");
+            parserSetError(parser, "Invalid token in term");
             freeASTNode(left);
             return NULL;
         } else {
@@ -114,8 +131,9 @@ static AstNode *parseTerm(Parser *parser) {
     return left;
 }
 
-static AstNode *parseFactor(Parser *parser) {
-    // TODO: Add pointer transfer check
+static ASTNode *parseFactor(Parser *parser) {
+    SOFT_ASSERT(parser != NULL, "Failed to transfer a pointer.\n", NULL);
+
     Token token = lexerPeek(parser->lexer);
 
     if (token.type == TOKEN_NUMBER) {
@@ -126,14 +144,14 @@ static AstNode *parseFactor(Parser *parser) {
     if (token.type == TOKEN_LPAREN) {
         lexerNext(parser->lexer);
 
-        AstNode *inside = parseExpression(parser);
-        if (parser->error || !inside) {
+        ASTNode *inside = parseExpression(parser);
+        if (parser->isError || !inside) {
             return NULL;
         }
 
         Token token2 = lexerPeek(parser->lexer);
         if (token2.type != TOKEN_RPAREN) {
-            parsesSetError(parser, "Expected ')'");
+            parserSetError(parser, "Expected ')'");
             freeASTNode(inside);
             return NULL;
         }
@@ -143,9 +161,9 @@ static AstNode *parseFactor(Parser *parser) {
     }
 
     if (token.type == TOKEN_INVALID) {
-        parsesSetError(parser, "Invalid Token in factor");
+        parserSetError(parser, "Invalid token in factor");
     } else {
-        parsesSetError(parser, "Expected number or '('");
+        parserSetError(parser, "Expected number or '('");
     }
 
     return NULL;

@@ -1,5 +1,5 @@
-#include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "ast.h"
@@ -10,37 +10,29 @@
 int main(void) {
     char buffer[MAX_BUFFER_LENGTH];
 
-    printf("Enter the expression (+, -, round brackets). Empty string - exit.\n");
+    printf("Enter the expression (+, -, round brackets):\n");
+    printf("> ");
 
-    while (true) {
-        printf("> ");
-        if (!fgets(buffer, (int)sizeof(buffer), stdin)) {
-            break;
-        }
+    SOFT_ASSERT(fgets(buffer, (int)sizeof(buffer), stdin) != NULL, "Failed to get the line.\n",
+                EXIT_FAILURE);
+    buffer[strcspn(buffer, "\n")] = '\0';
 
-        buffer[strcspn(buffer, "\n")] = '\0'; // TODO: make abstract function
+    Lexer lexer;
+    SOFT_ASSERT(initializeLexer(&lexer, buffer) == EXIT_SUCCESS, "Failed to initialize the lexer.\n", EXIT_FAILURE);
 
-        if (buffer[0] == '\0') {
-            break;
-        } // TODO: make abstract function
+    Parser parser;
+    initializeParser(&parser, &lexer);
 
-        // TODO: think about the logic
-        Lexer lexer;
-        initializeLexer(&lexer, buffer);
+    ASTNode *root = parserParse(&parser);
 
-        Parser parser;
-        initializeParser(&parser, &lexer);
-
-        AstNode *root = parserParse(&parser);
-
-        if (parser.error) {
-            printErrorParser(&parser);
-        } else {
-            printASTNode(root);
-        }
-
+    if (parser.isError) {
+        printErrorParser(&parser);
         freeASTNode(root);
+        return EXIT_FAILURE;
     }
+
+    printASTNode(root);
+    freeASTNode(root);
 
     return 0;
 }

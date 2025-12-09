@@ -1,7 +1,9 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-const int MAX_BUFFER_LENGTH = 4096;
+#include <stdio.h>
+
+extern const int MAX_BUFFER_LENGTH;
 
 #define SOFT_ASSERT(cond, message, ret)                                                            \
     do {                                                                                           \

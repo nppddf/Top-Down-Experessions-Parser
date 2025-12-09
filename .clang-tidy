@@ -1,0 +1,155 @@
+Checks: >
+  -*,
+  clang-analyzer-*,
+  -clang-analyzer-optin.taint.TaintedAlloc,
+  -clang-analyzer-optin.portability.UnixAPI,
+  -clang-analyzer-security.ArrayBound,
+  -clang-analyzer-security.insecureAPI,
+  -clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,
+
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+
+  readability-*,
+  -readability-identifier-length,
+  -readability-math-missing-parentheses,
+  -readability-magic-numbers,
+  -readability-function-cognitive-complexity,
+
+  performance-*,
+  portability-*,
+
+  cppcoreguidelines-*,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-pro-type-vararg,
+  -cppcoreguidelines-owning-memory,
+
+  misc-*,
+  -misc-no-recursion,
+
+  modernize-*,
+  -modernize-use-auto,
+  -modernize-use-nullptr,
+  -modernize-use-using,
+  -modernize-use-trailing-return-type,
+
+  hicpp-*,
+  -hicpp-no-array-decay
+
+WarningsAsErrors: '*'
+
+CheckOptions:
+  # ========== Naming conventions ==========
+  - key: readability-identifier-naming.VariableCase
+    value: camelBack
+  - key: readability-identifier-naming.FunctionCase
+    value: camelBack
+  - key: readability-identifier-naming.ConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.ParameterCase
+    value: camelBack
+  - key: readability-identifier-naming.AllowedVariableLength
+    value: '2'
+  - key: readability-identifier-naming.AllowedUnderscores
+    value: '1'
+
+  # ========== Uninitialized variables ==========
+  - key: clang-analyzer-core.CallAndMessage
+    value: 'true'
+  - key: clang-analyzer-core.uninitialized.Assign
+    value: 'true'
+  - key: clang-analyzer-core.uninitialized.Branch
+    value: 'true'
+  - key: clang-analyzer-core.uninitialized.UndefReturn
+    value: 'true'
+
+  # ========== Exit and assert(0) usage ==========
+  - key: bugprone-terminate-if-no-exception.CheckCallExit
+    value: 'true'
+  - key: misc-static-assert
+    value: 'true'
+  - key: hicpp-no-assembler
+    value: 'true'
+
+  # ========== Null pointer deref and safety ==========
+  - key: clang-analyzer-core.NullDereference
+    value: 'true'
+  - key: clang-analyzer-core.nonnull.Parameter
+    value: 'true'
+  - key: clang-analyzer-core.builtin.BuiltinFunctions
+    value: 'true'
+  - key: clang-analyzer-unix.Malloc
+    value: 'true'
+  - key: clang-analyzer-unix.MallocSizeof
+    value: 'true'
+  - key: clang-analyzer-core.CallAndMessageUninitialized
+    value: 'true'
+
+  # ========== Misc useful checks ==========
+  - key: bugprone-sizeof-expression
+    value: 'true'
+  - key: bugprone-macro-parentheses
+    value: 'true'
+  - key: bugprone-suspicious-memset-usage
+    value: 'true'
+  - key: bugprone-suspicious-string-compare
+    value: 'true'
+  - key: bugprone-suspicious-semicolon
+    value: 'true'
+  - key: bugprone-branch-clone
+    value: 'true'
+  - key: bugprone-narrowing-conversions
+    value: 'true'
+  - key: bugprone-integer-division
+    value: 'true'
+  - key: clang-analyzer-deadcode.DeadStores
+    value: 'true'
+  - key: clang-analyzer-security.FloatLoopCounter
+    value: 'true'
+  - key: bugprone-unused-return-value
+    value: 'true'
+  - key: bugprone-inaccurate-erase
+    value: 'true'
+  - key: bugprone-signed-char-misuse
+    value: 'true'
+
+  # ========== Enforce braces and consistency ==========
+  - key: readability-braces-around-statements.ShortStatementLines
+    value: '0'
+  - key: readability-braces-around-statements.IgnoreSingleLine
+    value: 'false'
+  - key: readability-misleading-indentation
+    value: 'true'
+  - key: readability-redundant-control-flow
+    value: 'true'
+
+  # ========== Discourage goto ==========
+  - key: cppcoreguidelines-avoid-goto
+    value: 'true'
+
+  # ========== Magic numbers control ==========
+  - key: readability-magic-numbers.IgnoredIntegerValues
+    value: '-1,0,1,2,10'
+  - key: readability-magic-numbers.IgnoredFloatingPointValues
+    value: '0.0,1.0,-1.0,2.0,10.0'
+  - key: readability-magic-numbers.IgnorePowersOfTwoIntegerValues
+    value: 'true'
+  - key: readability-magic-numbers.IgnoreBitFields
+    value: 'true'
+  - key: readability-magic-numbers.IgnoreEnumerators
+    value: 'true'
+  - key: readability-magic-numbers.IgnoreAssignedToConstants
+    value: 'true'
+
+  # ========== Performance and portability ==========
+  - key: performance-unnecessary-value-param
+    value: 'true'
+  - key: performance-inefficient-vector-operation
+    value: 'true'
+  - key: performance-move-const-arg
+    value: 'true'
+  - key: portability-simd-intrinsics
+    value: 'true'
+
+HeaderFilterRegex: ''
+SystemHeaders: false

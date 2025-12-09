@@ -3,22 +3,22 @@
 
 typedef enum { AST_NUMBER, AST_ADD, AST_MUL } AstNodeType;
 
-typedef struct AstNode {
+typedef struct ASTNode {
     AstNodeType type;
     union {
         int value;
         struct {
-            struct AstNode *left;
-            struct AstNode *right;
+            struct ASTNode *left;
+            struct ASTNode *right;
         } operands;
     } data;
-} AstNode;
+} ASTNode;
 
-AstNode *createNumberASTNode(int value);
-AstNode *createOperatorASTNode(AstNodeType type, AstNode *left, AstNode *right);
+ASTNode *createNumberASTNode(int value);
+ASTNode *createOperatorASTNode(AstNodeType type, ASTNode *left, ASTNode *right);
 
-void freeASTNode(AstNode *node);
-void printASTNode(const AstNode *node);
-unsigned long evaluateAST(const AstNode *node);
+void freeASTNode(ASTNode *node);
+void printASTNode(const ASTNode *node);
+unsigned long evaluateAST(const ASTNode *node);
 
 #endif // AST_H

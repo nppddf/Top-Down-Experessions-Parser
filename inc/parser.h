@@ -6,12 +6,12 @@
 
 typedef struct {
     Lexer *lexer;
-    int error;
+    int isError;
     const char *errorMessage;
 } Parser;
 
-void initializeParser(Parser *parser, Lexer *lexer);
-void printErrorParser(Parser *parser);
-AstNode *parserParse(Parser *parser);
+int initializeParser(Parser *parser, Lexer *lexer);
+int printErrorParser(Parser *parser);
+ASTNode *parserParse(Parser *parser);
 
 #endif // PARSER_H

@@ -1,5 +1,7 @@
 #include "lexer.h"
+#include "utils.h"
 #include <ctype.h>
+#include <stdlib.h>
 
 static Token createToken(TokenType type, int value) {
     Token token;
@@ -8,19 +10,23 @@ static Token createToken(TokenType type, int value) {
     return token;
 }
 
-void initializeLexer(Lexer *lexer, const char *input) {
-    // TODO: Add pointer transfer check
+int initializeLexer(Lexer *lexer, const char *input) {
+    SOFT_ASSERT(lexer != NULL, "Failed to transfer a pointer.\n", EXIT_FAILURE);
+    SOFT_ASSERT(input != NULL, "Failed to transfer a pointer.\n", EXIT_FAILURE);
+
     lexer->input = input;
     lexer->position = 0;
     lexer->hasCurrentToken = 0;
+
+    return EXIT_SUCCESS;
 }
 
 static Token lexerReadToken(Lexer *lexer) {
-    // TODO: Add pointer transfer check
+    SOFT_ASSERT(lexer != NULL, "Failed to transfer a pointer.\n", (Token){.type = TOKEN_INVALID});
+
     const char *string = lexer->input;
     unsigned long currentIndex = lexer->position;
 
-    // TODO: Make Skip spaces function
     while (string[currentIndex] != '\0' && isspace(string[currentIndex])) {
         currentIndex++;
     }
@@ -31,11 +37,9 @@ static Token lexerReadToken(Lexer *lexer) {
     }
 
     char currentCharacter = string[currentIndex];
-
     if (isdigit(currentCharacter)) {
         int value = 0;
         while (isdigit(string[currentIndex])) {
-            // TODO: Make toDigit function
             value = value * 10 + (string[currentIndex] - '0');
             currentIndex++;
         }
@@ -59,7 +63,8 @@ static Token lexerReadToken(Lexer *lexer) {
 }
 
 Token lexerPeek(Lexer *lexer) {
-    // TODO: Add pointer transfer check
+    SOFT_ASSERT(lexer != NULL, "Failed to transfer a pointer.\n", (Token){.type = TOKEN_INVALID});
+
     if (!lexer->hasCurrentToken) {
         lexer->current = lexerReadToken(lexer);
         lexer->hasCurrentToken = 1;
@@ -68,7 +73,8 @@ Token lexerPeek(Lexer *lexer) {
 }
 
 Token lexerNext(Lexer *lexer) {
-    // TODO: Add pointer transfer check
+    SOFT_ASSERT(lexer != NULL, "Failed to transfer a pointer.\n", (Token){.type = TOKEN_INVALID});
+
     if (lexer->hasCurrentToken) {
         lexer->hasCurrentToken = 0;
         return lexer->current;

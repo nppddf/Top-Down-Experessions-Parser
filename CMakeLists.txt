@@ -7,7 +7,8 @@ set(SRC_FILES
     src/main.c
     src/parser.c
     src/lexer.c
-    src/ast.c)
+    src/ast.c
+    src/utils.c)
 
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 

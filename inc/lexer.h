@@ -23,7 +23,7 @@ typedef struct {
     int hasCurrentToken;
 } Lexer;
 
-void initializeLexer(Lexer *lexer, const char *input);
+int initializeLexer(Lexer *lexer, const char *input);
 Token lexerNext(Lexer *lexer);
 Token lexerPeek(Lexer *lexer);
 

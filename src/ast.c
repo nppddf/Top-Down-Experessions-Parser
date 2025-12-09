@@ -2,33 +2,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static AstNode *createASTNode(void) {
-    AstNode *node = (AstNode *)calloc(1, sizeof(AstNode));
-    if (!node) {
+static ASTNode *createASTNode(void) {
+    ASTNode *node = (ASTNode *)calloc(1, sizeof(ASTNode));
+    if (node == NULL) {
         printf("Failed to allocate the memory for AST node.\n");
         exit(EXIT_FAILURE);
     }
     return node;
 }
 
-AstNode *createNumberASTNode(int value) {
-    AstNode *node = createASTNode();
+ASTNode *createNumberASTNode(int value) {
+    ASTNode *node = createASTNode();
     node->type = AST_NUMBER;
     node->data.value = value;
     return node;
 }
 
-AstNode *createOperatorASTNode(AstNodeType type, AstNode *left, AstNode *right) {
+ASTNode *createOperatorASTNode(AstNodeType type, ASTNode *left, ASTNode *right) {
     // TODO: Add pointer transfer check
-    AstNode *node = createASTNode();
+    ASTNode *node = createASTNode();
     node->type = type;
     node->data.operands.left = left;
     node->data.operands.right = right;
     return node;
 }
 
-void freeASTNode(AstNode *node) {
-    if (!node) {
+void freeASTNode(ASTNode *node) {
+    if (node == NULL) {
         return;
     }
 
@@ -45,20 +45,21 @@ void freeASTNode(AstNode *node) {
     }
 
     free(node);
+    node = NULL;
 }
 
-void printASTNode(const AstNode *node) {
-    if (!node) {
+void printASTNode(const ASTNode *node) {
+    if (node == NULL) {
         return;
     }
 
     printf("Result: %lu\n", evaluateAST(node));
 }
 
-unsigned long evaluateAST(const AstNode *node) {
+unsigned long evaluateAST(const ASTNode *node) {
     // TODO: Add pointer transfer check
 
-    if (!node) {
+    if (node == NULL) {
         return 0U;
     }
 
