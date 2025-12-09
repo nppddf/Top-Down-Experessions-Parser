@@ -1,7 +1,8 @@
-#include "lexer.h"
-#include "utils.h"
 #include <ctype.h>
 #include <stdlib.h>
+
+#include "lexer.h"
+#include "utils.h"
 
 static Token createToken(TokenType type, int value) {
     Token token;

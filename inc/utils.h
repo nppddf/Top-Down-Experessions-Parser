@@ -9,9 +9,11 @@ extern const int MAX_BUFFER_LENGTH;
     do {                                                                                           \
         if (!(cond)) {                                                                             \
             fprintf(stderr, "\ncondition `" #cond "` failed\n");                                   \
-            perror((message));                                                                     \
+            fprintf(stderr, "%s\n", (message));                                                    \
             return (ret);                                                                          \
         }                                                                                          \
     } while (0)
+
+int removeNewlineCharacter(char *string);
 
 #endif // UTILS_H

@@ -15,15 +15,19 @@ int main(void) {
 
     SOFT_ASSERT(fgets(buffer, (int)sizeof(buffer), stdin) != NULL, "Failed to get the line.\n",
                 EXIT_FAILURE);
-    buffer[strcspn(buffer, "\n")] = '\0';
+    SOFT_ASSERT(removeNewlineCharacter(buffer) == EXIT_SUCCESS,
+                "Failed to remove the newline character.\n", EXIT_FAILURE);
 
     Lexer lexer;
-    SOFT_ASSERT(initializeLexer(&lexer, buffer) == EXIT_SUCCESS, "Failed to initialize the lexer.\n", EXIT_FAILURE);
+    SOFT_ASSERT(initializeLexer(&lexer, buffer) == EXIT_SUCCESS,
+                "Failed to initialize the lexer.\n", EXIT_FAILURE);
 
     Parser parser;
-    initializeParser(&parser, &lexer);
+    SOFT_ASSERT(initializeParser(&parser, &lexer) == EXIT_SUCCESS,
+                "Failed to initialize the parser.\n", EXIT_FAILURE);
 
     ASTNode *root = parserParse(&parser);
+    SOFT_ASSERT(root != NULL, "Failed to parse via parser.\n", EXIT_FAILURE);
 
     if (parser.isError) {
         printErrorParser(&parser);
@@ -31,7 +35,7 @@ int main(void) {
         return EXIT_FAILURE;
     }
 
-    printASTNode(root);
+    printASTResult(root);
     freeASTNode(root);
 
     return 0;

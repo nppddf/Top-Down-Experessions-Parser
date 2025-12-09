@@ -1,13 +1,15 @@
-#include "ast.h"
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+
+#include "ast.h"
+#include "utils.h"
 
 static ASTNode *createASTNode(void) {
-    ASTNode *node = (ASTNode *)calloc(1, sizeof(ASTNode));
-    if (node == NULL) {
-        printf("Failed to allocate the memory for AST node.\n");
-        exit(EXIT_FAILURE);
-    }
+    ASTNode *node = calloc(1, sizeof(ASTNode));
+    SOFT_ASSERT(node != NULL, "Failed to allocate the memory.\n", NULL);
+
     return node;
 }
 
@@ -19,7 +21,9 @@ ASTNode *createNumberASTNode(int value) {
 }
 
 ASTNode *createOperatorASTNode(AstNodeType type, ASTNode *left, ASTNode *right) {
-    // TODO: Add pointer transfer check
+    SOFT_ASSERT(left != NULL, "Failed to transfer a pointer.\n", NULL);
+    SOFT_ASSERT(right != NULL, "Failed to transfer a pointer.\n", NULL);
+
     ASTNode *node = createASTNode();
     node->type = type;
     node->data.operands.left = left;
@@ -48,37 +52,35 @@ void freeASTNode(ASTNode *node) {
     node = NULL;
 }
 
-void printASTNode(const ASTNode *node) {
-    if (node == NULL) {
-        return;
-    }
+int printASTResult(const ASTNode *node) {
+    SOFT_ASSERT(node != NULL, "Failed to transfer a pointer.\n", EXIT_FAILURE);
 
-    printf("Result: %lu\n", evaluateAST(node));
+    ssize_t result = evaluateAST(node);
+    SOFT_ASSERT(result != -1, "Failed to evaluate the AST.\n", EXIT_FAILURE);
+
+    printf("Result: %lu\n", result);
+
+    return EXIT_SUCCESS;
 }
 
-unsigned long evaluateAST(const ASTNode *node) {
-    // TODO: Add pointer transfer check
+ssize_t evaluateAST(const ASTNode *node) {
+    SOFT_ASSERT(node != NULL, "Failed to transfer a pointer.\n", -1);
 
-    if (node == NULL) {
-        return 0U;
-    }
-
-    switch (node->type) {
-    case AST_NUMBER: {
+    if (node->type == AST_NUMBER) {
         return node->data.value;
     }
+
+    ssize_t left = evaluateAST(node->data.operands.left);
+    ssize_t right = evaluateAST(node->data.operands.right);
+    switch (node->type) {
     case AST_ADD: {
-        unsigned long left = evaluateAST(node->data.operands.left);
-        unsigned long right = evaluateAST(node->data.operands.right);
         return left + right;
     }
     case AST_MUL: {
-        unsigned long left = evaluateAST(node->data.operands.left);
-        unsigned long right = evaluateAST(node->data.operands.right);
         return left * right;
     }
     default: {
-        return 0;
+        SOFT_ASSERT(false, "Failed to define node type.\n", -1);
     }
     }
 }

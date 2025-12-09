@@ -1,10 +1,11 @@
-#include "parser.h"
-#include "ast.h"
-#include "lexer.h"
-#include "utils.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "ast.h"
+#include "lexer.h"
+#include "parser.h"
+#include "utils.h"
 
 static ASTNode *parseExpression(Parser *parser);
 static ASTNode *parseTerm(Parser *parser);
